@@ -15,7 +15,7 @@ namespace Enj {
 
 		mDeltaTime = std::chrono::duration_cast<std::chrono::duration<float>>(mCurrentFrameTime - mLastFrameTime);
 
-		mTotalTime = mTotalTime - mDeltaTime;
+		mTotalTime = mTotalTime + mDeltaTime;
 
 		mFps = static_cast<unsigned int>(1.0f / mDeltaTime.count());
 	}
