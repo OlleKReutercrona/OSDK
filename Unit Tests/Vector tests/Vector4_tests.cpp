@@ -9,19 +9,19 @@ constexpr double doubleMargin = 0.0000001;
 TestUtilities testUtilsVec4;
 
 TEST(Vector4_tests, Constructors) {
-	const Math::Vector4<int> vectorDefaultI;
+	const OMath::Vector4<int> vectorDefaultI;
 	EXPECT_EQ(vectorDefaultI.mX, 0);
 	EXPECT_EQ(vectorDefaultI.mY, 0);
 	EXPECT_EQ(vectorDefaultI.mZ, 0);
 	EXPECT_EQ(vectorDefaultI.mW, 0);
 
-	const Math::Vector4<float> vectorDefaultF;
+	const OMath::Vector4<float> vectorDefaultF;
 	EXPECT_EQ(vectorDefaultF.mX, 0);
 	EXPECT_EQ(vectorDefaultF.mY, 0);
 	EXPECT_EQ(vectorDefaultF.mZ, 0);
 	EXPECT_EQ(vectorDefaultF.mW, 0);
 
-	const Math::Vector4<double> vectorDefaultD;
+	const OMath::Vector4<double> vectorDefaultD;
 	EXPECT_EQ(vectorDefaultD.mX, 0);
 	EXPECT_EQ(vectorDefaultD.mY, 0);
 	EXPECT_EQ(vectorDefaultD.mZ, 0);
@@ -33,7 +33,7 @@ TEST(Vector4_tests, Constructors) {
 		const int z = testUtilsVec4.GetRandomInt();
 		const int w = testUtilsVec4.GetRandomInt();
 
-		const Math::Vector4<int> vector(x, y, z, w);
+		const OMath::Vector4<int> vector(x, y, z, w);
 		EXPECT_EQ(vector.mX, x);
 		EXPECT_EQ(vector.mY, y);
 		EXPECT_EQ(vector.mZ, z);
@@ -46,7 +46,7 @@ TEST(Vector4_tests, Constructors) {
 		const float z = testUtilsVec4.GetRandomFloat();
 		const float w = testUtilsVec4.GetRandomFloat();
 
-		const Math::Vector4<float> vector(x, y, z, w);
+		const OMath::Vector4<float> vector(x, y, z, w);
 		EXPECT_EQ(vector.mX, x);
 		EXPECT_EQ(vector.mY, y);
 		EXPECT_EQ(vector.mZ, z);
@@ -59,7 +59,7 @@ TEST(Vector4_tests, Constructors) {
 		const double z = testUtilsVec4.GetRandomDouble();
 		const double w = testUtilsVec4.GetRandomDouble();
 
-		const Math::Vector4<double> vector(x, y, z, w);
+		const OMath::Vector4<double> vector(x, y, z, w);
 		EXPECT_EQ(vector.mX, x);
 		EXPECT_EQ(vector.mY, y);
 		EXPECT_EQ(vector.mZ, z);
@@ -72,7 +72,7 @@ TEST(Vector4_tests, Constructors) {
 		const int z = testUtilsVec4.GetRandomInt();
 		const int w = testUtilsVec4.GetRandomInt();
 
-		const Math::Vector4<int> vector(x, y, z, w);
+		const OMath::Vector4<int> vector(x, y, z, w);
 		const auto copyVector(vector);
 		EXPECT_EQ(copyVector.mX, x);
 		EXPECT_EQ(copyVector.mY, y);
@@ -86,7 +86,7 @@ TEST(Vector4_tests, Constructors) {
 		const float z = testUtilsVec4.GetRandomFloat();
 		const float w = testUtilsVec4.GetRandomFloat();
 
-		const Math::Vector4<float> vector(x, y, z, w);
+		const OMath::Vector4<float> vector(x, y, z, w);
 		const auto copyVector(vector);
 		EXPECT_EQ(copyVector.mX, x);
 		EXPECT_EQ(copyVector.mY, y);
@@ -100,7 +100,7 @@ TEST(Vector4_tests, Constructors) {
 		const double z = testUtilsVec4.GetRandomDouble();
 		const double w = testUtilsVec4.GetRandomDouble();
 
-		const Math::Vector4<double> vector(x, y, z, w);
+		const OMath::Vector4<double> vector(x, y, z, w);
 		const auto copyVector(vector);
 		EXPECT_EQ(copyVector.mX, x);
 		EXPECT_EQ(copyVector.mY, y);
@@ -116,7 +116,7 @@ TEST(Vector4_tests, Assignment) {
 		const auto z = testUtilsVec4.GetRandomFloat();
 		const auto w = testUtilsVec4.GetRandomFloat();
 
-		const Math::Vector4<float> originalVec(x, y, z, w);
+		const OMath::Vector4<float> originalVec(x, y, z, w);
 		auto copyVector = originalVec;
 		EXPECT_EQ(copyVector.mX, x);
 		EXPECT_EQ(copyVector.mY, y);
@@ -130,7 +130,7 @@ TEST(Vector4_tests, Assignment) {
 		const auto z = testUtilsVec4.GetRandomDouble();
 		const auto w = testUtilsVec4.GetRandomDouble();
 
-		const Math::Vector4<double> originalVec(x, y, z, w);
+		const OMath::Vector4<double> originalVec(x, y, z, w);
 		auto copyVector = originalVec;
 		EXPECT_EQ(copyVector.mX, x);
 		EXPECT_EQ(copyVector.mY, y);
@@ -144,7 +144,7 @@ TEST(Vector4_tests, Assignment) {
 		const auto z = testUtilsVec4.GetRandomInt();
 		const auto w = testUtilsVec4.GetRandomInt();
 
-		const Math::Vector4<int> originalVec(x, y, z, w);
+		const OMath::Vector4<int> originalVec(x, y, z, w);
 		auto copyVector = originalVec;
 		EXPECT_EQ(copyVector.mX, x);
 		EXPECT_EQ(copyVector.mY, y);
@@ -165,8 +165,8 @@ TEST(Vector4_tests, Addition) {
 		const auto z2 = testUtilsVec4.GetRandomFloat();
 		const auto w2 = testUtilsVec4.GetRandomFloat();
 
-		const Math::Vector4<float> vector1(x1, y1, z1, w1);
-		const Math::Vector4<float> Vector4(x2, y2, z2, w2);
+		const OMath::Vector4<float> vector1(x1, y1, z1, w1);
+		const OMath::Vector4<float> Vector4(x2, y2, z2, w2);
 		const auto resultVector = vector1 + Vector4;
 
 		EXPECT_NEAR(resultVector.mX, x1 + x2, floatMargin);
@@ -179,7 +179,7 @@ TEST(Vector4_tests, Addition) {
 		const auto z3 = testUtilsVec4.GetRandomFloat();
 		const auto w3 = testUtilsVec4.GetRandomFloat();
 
-		Math::Vector4<float> vector4(x3, y3, z3, w3);
+		OMath::Vector4<float> vector4(x3, y3, z3, w3);
 		vector4 += resultVector;
 
 		const float xResult = x1 + x2 + x3;
@@ -203,8 +203,8 @@ TEST(Vector4_tests, Addition) {
 		const auto z2 = testUtilsVec4.GetRandomDouble();
 		const auto w2 = testUtilsVec4.GetRandomDouble();
 
-		const Math::Vector4<double> vector1(x1, y1, z1, w1);
-		const Math::Vector4<double> Vector4(x2, y2, z2, w2);
+		const OMath::Vector4<double> vector1(x1, y1, z1, w1);
+		const OMath::Vector4<double> Vector4(x2, y2, z2, w2);
 		const auto resultVector = vector1 + Vector4;
 
 		EXPECT_NEAR(resultVector.mX, x1 + x2, doubleMargin);
@@ -217,7 +217,7 @@ TEST(Vector4_tests, Addition) {
 		const auto z3 = testUtilsVec4.GetRandomDouble();
 		const auto w3 = testUtilsVec4.GetRandomDouble();
 
-		Math::Vector4<double> vector4(x3, y3, z3, w3);
+		OMath::Vector4<double> vector4(x3, y3, z3, w3);
 		vector4 += resultVector;
 
 		const auto xResult = x1 + x2 + x3;
@@ -241,8 +241,8 @@ TEST(Vector4_tests, Addition) {
 		const auto z2 = testUtilsVec4.GetRandomInt();
 		const auto w2 = testUtilsVec4.GetRandomInt();
 
-		const Math::Vector4<int> vector1(x1, y1, z1, w1);
-		const Math::Vector4<int> Vector4(x2, y2, z2, w2);
+		const OMath::Vector4<int> vector1(x1, y1, z1, w1);
+		const OMath::Vector4<int> Vector4(x2, y2, z2, w2);
 		const auto resultVector = vector1 + Vector4;
 
 		EXPECT_EQ(resultVector.mX, x1 + x2);
@@ -255,7 +255,7 @@ TEST(Vector4_tests, Addition) {
 		const auto z3 = testUtilsVec4.GetRandomInt();
 		const auto w3 = testUtilsVec4.GetRandomInt();
 
-		Math::Vector4<int> vector4(x3, y3, z3, w3);
+		OMath::Vector4<int> vector4(x3, y3, z3, w3);
 		vector4 += resultVector;
 
 		const auto xResult = x1 + x2 + x3;
@@ -281,8 +281,8 @@ TEST(Vector4_tests, Subtraction) {
 		const auto z2 = testUtilsVec4.GetRandomFloat();
 		const auto w2 = testUtilsVec4.GetRandomFloat();
 
-		const Math::Vector4<float> vector1(x1, y1, z1, w1);
-		const Math::Vector4<float> Vector4(x2, y2, z2, w2);
+		const OMath::Vector4<float> vector1(x1, y1, z1, w1);
+		const OMath::Vector4<float> Vector4(x2, y2, z2, w2);
 		const auto resultVector = vector1 - Vector4;
 
 		EXPECT_NEAR(resultVector.mX, x1 - x2, floatMargin);
@@ -295,7 +295,7 @@ TEST(Vector4_tests, Subtraction) {
 		const auto z3 = testUtilsVec4.GetRandomFloat();
 		const auto w3 = testUtilsVec4.GetRandomFloat();
 
-		Math::Vector4<float> vector4(x3, y3, z3, w3);
+		OMath::Vector4<float> vector4(x3, y3, z3, w3);
 		vector4 -= resultVector;
 
 		const auto xValue = x3 - (x1 - x2);
@@ -320,8 +320,8 @@ TEST(Vector4_tests, Subtraction) {
 		const auto z2 = testUtilsVec4.GetRandomDouble();
 		const auto w2 = testUtilsVec4.GetRandomDouble();
 
-		const Math::Vector4<double> vector1(x1, y1, z1, w1);
-		const Math::Vector4<double> Vector4(x2, y2, z2, w2);
+		const OMath::Vector4<double> vector1(x1, y1, z1, w1);
+		const OMath::Vector4<double> Vector4(x2, y2, z2, w2);
 		const auto resultVector = vector1 - Vector4;
 
 		EXPECT_NEAR(resultVector.mX, x1 - x2, doubleMargin);
@@ -334,7 +334,7 @@ TEST(Vector4_tests, Subtraction) {
 		const auto z3 = testUtilsVec4.GetRandomDouble();
 		const auto w3 = testUtilsVec4.GetRandomDouble();
 
-		Math::Vector4<double> vector4(x3, y3, z3, w3);
+		OMath::Vector4<double> vector4(x3, y3, z3, w3);
 		vector4 -= resultVector;
 
 		const auto xValue = x3 - (x1 - x2);
@@ -364,8 +364,8 @@ TEST(Vector4_tests, Subtraction) {
 		const auto z3 = testUtilsVec4.GetRandomInt();
 		const auto w3 = testUtilsVec4.GetRandomInt();
 
-		const Math::Vector4<int> vector1(x1, y1, z1, w1);
-		const Math::Vector4<int> Vector4(x2, y2, z2, w2);
+		const OMath::Vector4<int> vector1(x1, y1, z1, w1);
+		const OMath::Vector4<int> Vector4(x2, y2, z2, w2);
 		const auto resultVector = vector1 - Vector4;
 
 		EXPECT_EQ(resultVector.mX, x1 - x2);
@@ -373,7 +373,7 @@ TEST(Vector4_tests, Subtraction) {
 		EXPECT_EQ(resultVector.mZ, z1 - z2);
 		EXPECT_EQ(resultVector.mW, w1 - w2);
 
-		Math::Vector4<int> vector4(x3, y3, z3, w3);
+		OMath::Vector4<int> vector4(x3, y3, z3, w3);
 		vector4 -= resultVector;
 
 		const auto xValue = x3 - (x1 - x2);
@@ -400,8 +400,8 @@ TEST(Vector4_tests, Multiplication) {
 		const auto z2 = testUtilsVec4.GetRandomFloat();
 		const auto w2 = testUtilsVec4.GetRandomFloat();
 
-		const Math::Vector4<float> vector1(x1, y1, z1, w1);
-		const Math::Vector4<float> Vector4(x2, y2, z2, w2);
+		const OMath::Vector4<float> vector1(x1, y1, z1, w1);
+		const OMath::Vector4<float> Vector4(x2, y2, z2, w2);
 		const auto resultVector = vector1 * Vector4;
 
 		EXPECT_NEAR(resultVector.mX, x1 * x2, floatMargin);
@@ -414,7 +414,7 @@ TEST(Vector4_tests, Multiplication) {
 		const auto z3 = testUtilsVec4.GetRandomFloat();
 		const auto w3 = testUtilsVec4.GetRandomFloat();
 
-		Math::Vector4<float> vector4(x3, y3, z3, w3);
+		OMath::Vector4<float> vector4(x3, y3, z3, w3);
 		vector4 *= resultVector;
 
 		const auto xValue = x3 * (x1 * x2);
@@ -439,8 +439,8 @@ TEST(Vector4_tests, Multiplication) {
 		const auto z2 = testUtilsVec4.GetRandomDouble();
 		const auto w2 = testUtilsVec4.GetRandomDouble();
 
-		const Math::Vector4<double> vector1(x1, y1, z1, w1);
-		const Math::Vector4<double> Vector4(x2, y2, z2, w2);
+		const OMath::Vector4<double> vector1(x1, y1, z1, w1);
+		const OMath::Vector4<double> Vector4(x2, y2, z2, w2);
 		const auto resultVector = vector1 * Vector4;
 
 		EXPECT_NEAR(resultVector.mX, x1 * x2, doubleMargin);
@@ -453,7 +453,7 @@ TEST(Vector4_tests, Multiplication) {
 		const auto z3 = testUtilsVec4.GetRandomDouble();
 		const auto w3 = testUtilsVec4.GetRandomDouble();
 
-		Math::Vector4<double> vector4(x3, y3, z3, w3);
+		OMath::Vector4<double> vector4(x3, y3, z3, w3);
 		vector4 *= resultVector;
 
 		const auto xValue = x3 * (x1 * x2);
@@ -483,8 +483,8 @@ TEST(Vector4_tests, Multiplication) {
 		const auto z3 = testUtilsVec4.GetRandomInt();
 		const auto w3 = testUtilsVec4.GetRandomInt();
 
-		const Math::Vector4<int> vector1(x1, y1, z1, w1);
-		const Math::Vector4<int> Vector4(x2, y2, z2, w2);
+		const OMath::Vector4<int> vector1(x1, y1, z1, w1);
+		const OMath::Vector4<int> Vector4(x2, y2, z2, w2);
 		const auto resultVector = vector1 * Vector4;
 
 		EXPECT_EQ(resultVector.mX, x1 * x2);
@@ -492,7 +492,7 @@ TEST(Vector4_tests, Multiplication) {
 		EXPECT_EQ(resultVector.mZ, z1 * z2);
 		EXPECT_EQ(resultVector.mW, w1 * w2);
 
-		Math::Vector4<int> vector4(x3, y3, z3, w3);
+		OMath::Vector4<int> vector4(x3, y3, z3, w3);
 		vector4 *= resultVector;
 
 		const auto xValue = x3 * (x1 * x2);
@@ -514,7 +514,7 @@ TEST(Vector4_tests, LengthSquared) {
 		const auto z1 = testUtilsVec4.GetRandomFloat();
 		const auto w1 = testUtilsVec4.GetRandomFloat();
 
-		const Math::Vector4<float> vector(x1, y1, z1, w1);
+		const OMath::Vector4<float> vector(x1, y1, z1, w1);
 		const auto lengthSqrd = vector.LengthSqrd();
 		const auto expectedValue = x1 * x1 + y1 * y1 + z1 * z1 + w1 * w1;
 
@@ -527,7 +527,7 @@ TEST(Vector4_tests, LengthSquared) {
 		const auto z1 = testUtilsVec4.GetRandomDouble();
 		const auto w1 = testUtilsVec4.GetRandomDouble();
 
-		const Math::Vector4<double> vector(x1, y1, z1, w1);
+		const OMath::Vector4<double> vector(x1, y1, z1, w1);
 		const auto lengthSqrd = vector.LengthSqrd();
 		const auto expectedValue = x1 * x1 + y1 * y1 + z1 * z1 + w1 * w1;
 
@@ -540,7 +540,7 @@ TEST(Vector4_tests, LengthSquared) {
 		const auto z1 = testUtilsVec4.GetRandomInt();
 		const auto w1 = testUtilsVec4.GetRandomInt();
 
-		const Math::Vector4<int> vector(x1, y1, z1, w1);
+		const OMath::Vector4<int> vector(x1, y1, z1, w1);
 		const auto result = vector.LengthSqrd();
 		const auto expectedValue = x1 * x1 + y1 * y1 + z1 * z1 + w1 * w1;
 		EXPECT_EQ(result, expectedValue);
@@ -554,7 +554,7 @@ TEST(Vector4_tests, Length) {
 		const auto z1 = testUtilsVec4.GetRandomFloat();
 		const auto w1 = testUtilsVec4.GetRandomFloat();
 
-		const Math::Vector4<float> vector(x1, y1, z1, w1);
+		const OMath::Vector4<float> vector(x1, y1, z1, w1);
 		const auto length = vector.Length();
 		const float expectedValue = sqrt(x1 * x1 + y1 * y1 + z1 * z1 + w1 * w1);
 
@@ -567,7 +567,7 @@ TEST(Vector4_tests, Length) {
 		const auto z1 = testUtilsVec4.GetRandomDouble();
 		const auto w1 = testUtilsVec4.GetRandomDouble();
 
-		const Math::Vector4<double> vector(x1, y1, z1, w1);
+		const OMath::Vector4<double> vector(x1, y1, z1, w1);
 		const auto length = vector.Length();
 		const double expectedValue = sqrt(x1 * x1 + y1 * y1 + z1 * z1 + w1 * w1);
 
@@ -580,7 +580,7 @@ TEST(Vector4_tests, Length) {
 		const auto z1 = testUtilsVec4.GetRandomInt();
 		const auto w1 = testUtilsVec4.GetRandomInt();
 
-		const Math::Vector4<int> vector(x1, y1, z1, w1);
+		const OMath::Vector4<int> vector(x1, y1, z1, w1);
 		const auto length = vector.Length();
 		const int expectedValue = static_cast<int>(sqrt(x1 * x1 + y1 * y1 + z1 * z1 + w1 * w1));
 
@@ -595,10 +595,10 @@ TEST(Vector4_tests, GetNormalized) {
 		const auto z1 = testUtilsVec4.GetRandomFloat();
 		const auto w1 = testUtilsVec4.GetRandomFloat();
 
-		const Math::Vector4<float> vector(x1, y1, z1, w1);
+		const OMath::Vector4<float> vector(x1, y1, z1, w1);
 		const auto normalizedVector = vector.GetNormalized();
 		const auto length = vector.Length();
-		const Math::Vector4<float> expectedValue(
+		const OMath::Vector4<float> expectedValue(
 			vector.mX / length,
 			vector.mY / length,
 			vector.mZ / length,
@@ -616,10 +616,10 @@ TEST(Vector4_tests, GetNormalized) {
 		const auto z1 = testUtilsVec4.GetRandomDouble();
 		const auto w1 = testUtilsVec4.GetRandomDouble();
 
-		const Math::Vector4<double> vector(x1, y1, z1, w1);
+		const OMath::Vector4<double> vector(x1, y1, z1, w1);
 		const auto normalizedVector = vector.GetNormalized();
 		const auto length = vector.Length();
-		const Math::Vector4<double> expectedValue(
+		const OMath::Vector4<double> expectedValue(
 			vector.mX / length,
 			vector.mY / length,
 			vector.mZ / length,
@@ -637,10 +637,10 @@ TEST(Vector4_tests, GetNormalized) {
 		const auto z1 = testUtilsVec4.GetRandomInt();
 		const auto w1 = testUtilsVec4.GetRandomInt();
 
-		const Math::Vector4<int> vector(x1, y1, z1, w1);
+		const OMath::Vector4<int> vector(x1, y1, z1, w1);
 		const auto normalizedVector = vector.GetNormalized();
 		const auto length = vector.Length();
-		const Math::Vector4<int> expectedValue(
+		const OMath::Vector4<int> expectedValue(
 			vector.mX / length,
 			vector.mY / length,
 			vector.mZ / length,
@@ -654,32 +654,32 @@ TEST(Vector4_tests, GetNormalized) {
 }
 
 TEST(Vector4_tests, Length_Zero) {
-	Math::Vector4<float> vectorF;
+	OMath::Vector4<float> vectorF;
 	EXPECT_EQ(vectorF.Length(), 0.0f);
 
-	Math::Vector4<double> vectorD;
+	OMath::Vector4<double> vectorD;
 	EXPECT_EQ(vectorD.Length(), 0.0);
 
-	Math::Vector4<int> vectorI;
+	OMath::Vector4<int> vectorI;
 	EXPECT_EQ(vectorI.Length(), 0);
 }
 
 TEST(Vector4_tests, Normalize_Zero) {
-	Math::Vector4<float> vectorF;
+	OMath::Vector4<float> vectorF;
 	vectorF.Normalize();
-	Math::Vector4<float> normalizedVectorF = vectorF.GetNormalized();
+	OMath::Vector4<float> normalizedVectorF = vectorF.GetNormalized();
 	EXPECT_EQ(vectorF.Length(), 0.0f);
 	EXPECT_EQ(normalizedVectorF.Length(), 0.0f);
 
-	Math::Vector4<double> vectorD;
+	OMath::Vector4<double> vectorD;
 	vectorD.Normalize();
-	Math::Vector4<double> normalizedVectorD = vectorD.GetNormalized();
+	OMath::Vector4<double> normalizedVectorD = vectorD.GetNormalized();
 	EXPECT_EQ(vectorD.Length(), 0.0);
 	EXPECT_EQ(normalizedVectorD.Length(), 0.0);
 
-	Math::Vector4<int> vectorI;
+	OMath::Vector4<int> vectorI;
 	vectorI.Normalize();
-	Math::Vector4<int> normalizedVectorI = vectorI.GetNormalized();
+	OMath::Vector4<int> normalizedVectorI = vectorI.GetNormalized();
 	EXPECT_EQ(vectorI.Length(), 0);
 	EXPECT_EQ(normalizedVectorI.Length(), 0);
 }
@@ -695,8 +695,8 @@ TEST(Vector4_tests, Dot) {
 		const auto w1 = testUtilsVec4.GetRandomFloat();
 		const auto w2 = testUtilsVec4.GetRandomFloat();
 
-		const Math::Vector4<float> vector1(x1, y1, z1, w1);
-		const Math::Vector4<float> Vector4(x2, y2, z2, w2);
+		const OMath::Vector4<float> vector1(x1, y1, z1, w1);
+		const OMath::Vector4<float> Vector4(x2, y2, z2, w2);
 		const auto dot = vector1.Dot(Vector4);
 
 		const auto controlDot = x1 * x2 + y1 * y2 + z1 * z2 + w1 * w2;
@@ -714,8 +714,8 @@ TEST(Vector4_tests, Dot) {
 		const auto w1 = testUtilsVec4.GetRandomDouble();
 		const auto w2 = testUtilsVec4.GetRandomDouble();
 
-		const Math::Vector4<double> vector1(x1, y1, z1, w1);
-		const Math::Vector4<double> Vector4(x2, y2, z2, w2);
+		const OMath::Vector4<double> vector1(x1, y1, z1, w1);
+		const OMath::Vector4<double> Vector4(x2, y2, z2, w2);
 		const auto dot = vector1.Dot(Vector4);
 
 		const auto controlDot = x1 * x2 + y1 * y2 + z1 * z2 + w1 * w2;
@@ -733,8 +733,8 @@ TEST(Vector4_tests, Dot) {
 		const auto w1 = testUtilsVec4.GetRandomInt();
 		const auto w2 = testUtilsVec4.GetRandomInt();
 
-		const Math::Vector4<int> vector1(x1, y1, z1, w1);
-		const Math::Vector4<int> Vector4(x2, y2, z2, w2);
+		const OMath::Vector4<int> vector1(x1, y1, z1, w1);
+		const OMath::Vector4<int> Vector4(x2, y2, z2, w2);
 		const auto dot = vector1.Dot(Vector4);
 
 		const auto controlDot = x1 * x2 + y1 * y2 + z1 * z2 + w1 * w2;

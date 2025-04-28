@@ -1,5 +1,5 @@
 #pragma once
-namespace Math {
+namespace OMath {
 	template <class T>
 	class Vector3 {
 	public:
