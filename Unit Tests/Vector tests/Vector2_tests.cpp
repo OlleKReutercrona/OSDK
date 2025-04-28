@@ -6,7 +6,7 @@
 constexpr float floatMargin = 0.0000001f;
 constexpr double doubleMargin = 0.0000001;
 
-TestUtilities testUtils;
+TestUtilities testUtilsVec2;
 
 TEST(Vector2_tests, Constructors) {
 	const Math::Vector2<int> vectorDefaultI;
@@ -22,8 +22,8 @@ TEST(Vector2_tests, Constructors) {
 	EXPECT_EQ(vectorDefaultD.mY, 0);
 
 	for (int i = 0; i < 100; ++i) {
-		const int x = testUtils.GetRandomInt();
-		const int y = testUtils.GetRandomInt();
+		const int x = testUtilsVec2.GetRandomInt();
+		const int y = testUtilsVec2.GetRandomInt();
 
 		const Math::Vector2<int> vector(x, y);
 		EXPECT_EQ(vector.mX, x);
@@ -31,8 +31,8 @@ TEST(Vector2_tests, Constructors) {
 	}
 
 	for (int i = 0; i < 100; ++i) {
-		const float x = testUtils.GetRandomFloat();
-		const float y = testUtils.GetRandomFloat();
+		const float x = testUtilsVec2.GetRandomFloat();
+		const float y = testUtilsVec2.GetRandomFloat();
 
 		const Math::Vector2<float> vector(x, y);
 		EXPECT_EQ(vector.mX, x);
@@ -40,8 +40,8 @@ TEST(Vector2_tests, Constructors) {
 	}
 
 	for (int i = 0; i < 100; ++i) {
-		const double x = testUtils.GetRandomDouble();
-		const double y = testUtils.GetRandomDouble();
+		const double x = testUtilsVec2.GetRandomDouble();
+		const double y = testUtilsVec2.GetRandomDouble();
 
 		const Math::Vector2<double> vector(x, y);
 		EXPECT_EQ(vector.mX, x);
@@ -49,8 +49,8 @@ TEST(Vector2_tests, Constructors) {
 	}
 
 	for (int i = 0; i < 100; ++i) {
-		const int x = testUtils.GetRandomInt();
-		const int y = testUtils.GetRandomInt();
+		const int x = testUtilsVec2.GetRandomInt();
+		const int y = testUtilsVec2.GetRandomInt();
 
 		const Math::Vector2<int> vector(x, y);
 		const auto copyVector(vector);
@@ -59,8 +59,8 @@ TEST(Vector2_tests, Constructors) {
 	}
 
 	for (int i = 0; i < 100; ++i) {
-		const float x = testUtils.GetRandomFloat();
-		const float y = testUtils.GetRandomFloat();
+		const float x = testUtilsVec2.GetRandomFloat();
+		const float y = testUtilsVec2.GetRandomFloat();
 
 		const Math::Vector2<float> vector(x, y);
 		const auto copyVector(vector);
@@ -69,8 +69,8 @@ TEST(Vector2_tests, Constructors) {
 	}
 
 	for (int i = 0; i < 100; ++i) {
-		const double x = testUtils.GetRandomDouble();
-		const double y = testUtils.GetRandomDouble();
+		const double x = testUtilsVec2.GetRandomDouble();
+		const double y = testUtilsVec2.GetRandomDouble();
 
 		const Math::Vector2<double> vector(x, y);
 		const auto copyVector(vector);
@@ -81,8 +81,8 @@ TEST(Vector2_tests, Constructors) {
 
 TEST(Vector2_tests, Assignment) {
 	for (int i = 0; i < 100; i++) {
-		const auto x = testUtils.GetRandomFloat();
-		const auto y = testUtils.GetRandomFloat();
+		const auto x = testUtilsVec2.GetRandomFloat();
+		const auto y = testUtilsVec2.GetRandomFloat();
 
 		const Math::Vector2<float> originalVec(x, y);
 		auto copyVector = originalVec;
@@ -91,8 +91,8 @@ TEST(Vector2_tests, Assignment) {
 	}
 
 	for (int i = 0; i < 100; i++) {
-		const auto x = testUtils.GetRandomDouble();
-		const auto y = testUtils.GetRandomDouble();
+		const auto x = testUtilsVec2.GetRandomDouble();
+		const auto y = testUtilsVec2.GetRandomDouble();
 
 		const Math::Vector2<double> originalVec(x, y);
 		auto copyVector = originalVec;
@@ -101,8 +101,8 @@ TEST(Vector2_tests, Assignment) {
 	}
 
 	for (int i = 0; i < 100; i++) {
-		const auto x = testUtils.GetRandomInt();
-		const auto y = testUtils.GetRandomInt();
+		const auto x = testUtilsVec2.GetRandomInt();
+		const auto y = testUtilsVec2.GetRandomInt();
 
 		const Math::Vector2<int> originalVec(x, y);
 		auto copyVector = originalVec;
@@ -113,10 +113,10 @@ TEST(Vector2_tests, Assignment) {
 
 TEST(Vector2_tests, Addition) {
 	for (int i = 0; i < 100; i++) {
-		const auto x1 = testUtils.GetRandomFloat();
-		const auto y1 = testUtils.GetRandomFloat();
-		const auto x2 = testUtils.GetRandomFloat();
-		const auto y2 = testUtils.GetRandomFloat();
+		const auto x1 = testUtilsVec2.GetRandomFloat();
+		const auto y1 = testUtilsVec2.GetRandomFloat();
+		const auto x2 = testUtilsVec2.GetRandomFloat();
+		const auto y2 = testUtilsVec2.GetRandomFloat();
 
 		const Math::Vector2<float> vector1(x1, y1);
 		const Math::Vector2<float> vector2(x2, y2);
@@ -125,8 +125,8 @@ TEST(Vector2_tests, Addition) {
 		EXPECT_NEAR(resultVector.mX, x1 + x2, floatMargin);
 		EXPECT_NEAR(resultVector.mY, y1 + y2, floatMargin);
 
-		const auto x3 = testUtils.GetRandomFloat();
-		const auto y3 = testUtils.GetRandomFloat();
+		const auto x3 = testUtilsVec2.GetRandomFloat();
+		const auto y3 = testUtilsVec2.GetRandomFloat();
 
 		Math::Vector2<float> vector4(x3, y3);
 		vector4 += resultVector;
@@ -138,10 +138,10 @@ TEST(Vector2_tests, Addition) {
 	}
 
 	for (int i = 0; i < 100; i++) {
-		const auto x1 = testUtils.GetRandomDouble();
-		const auto y1 = testUtils.GetRandomDouble();
-		const auto x2 = testUtils.GetRandomDouble();
-		const auto y2 = testUtils.GetRandomDouble();
+		const auto x1 = testUtilsVec2.GetRandomDouble();
+		const auto y1 = testUtilsVec2.GetRandomDouble();
+		const auto x2 = testUtilsVec2.GetRandomDouble();
+		const auto y2 = testUtilsVec2.GetRandomDouble();
 
 		const Math::Vector2<double> vector1(x1, y1);
 		const Math::Vector2<double> vector2(x2, y2);
@@ -150,8 +150,8 @@ TEST(Vector2_tests, Addition) {
 		EXPECT_NEAR(resultVector.mX, x1 + x2, doubleMargin);
 		EXPECT_NEAR(resultVector.mY, y1 + y2, doubleMargin);
 
-		const auto x3 = testUtils.GetRandomDouble();
-		const auto y3 = testUtils.GetRandomDouble();
+		const auto x3 = testUtilsVec2.GetRandomDouble();
+		const auto y3 = testUtilsVec2.GetRandomDouble();
 
 		Math::Vector2<double> vector4(x3, y3);
 		vector4 += resultVector;
@@ -163,10 +163,10 @@ TEST(Vector2_tests, Addition) {
 	}
 
 	for (int i = 0; i < 100; i++) {
-		const auto x1 = testUtils.GetRandomInt();
-		const auto y1 = testUtils.GetRandomInt();
-		const auto x2 = testUtils.GetRandomInt();
-		const auto y2 = testUtils.GetRandomInt();
+		const auto x1 = testUtilsVec2.GetRandomInt();
+		const auto y1 = testUtilsVec2.GetRandomInt();
+		const auto x2 = testUtilsVec2.GetRandomInt();
+		const auto y2 = testUtilsVec2.GetRandomInt();
 
 		const Math::Vector2<int> vector1(x1, y1);
 		const Math::Vector2<int> vector2(x2, y2);
@@ -175,8 +175,8 @@ TEST(Vector2_tests, Addition) {
 		EXPECT_EQ(resultVector.mX, x1 + x2);
 		EXPECT_EQ(resultVector.mY, y1 + y2);
 
-		const auto x3 = testUtils.GetRandomInt();
-		const auto y3 = testUtils.GetRandomInt();
+		const auto x3 = testUtilsVec2.GetRandomInt();
+		const auto y3 = testUtilsVec2.GetRandomInt();
 
 		Math::Vector2<int> vector4(x3, y3);
 		vector4 += resultVector;
@@ -190,10 +190,10 @@ TEST(Vector2_tests, Addition) {
 
 TEST(Vector2_tests, Subtraction) {
 	for (int i = 0; i < 100; i++) {
-		const auto x1 = testUtils.GetRandomFloat();
-		const auto y1 = testUtils.GetRandomFloat();
-		const auto x2 = testUtils.GetRandomFloat();
-		const auto y2 = testUtils.GetRandomFloat();
+		const auto x1 = testUtilsVec2.GetRandomFloat();
+		const auto y1 = testUtilsVec2.GetRandomFloat();
+		const auto x2 = testUtilsVec2.GetRandomFloat();
+		const auto y2 = testUtilsVec2.GetRandomFloat();
 
 		const Math::Vector2<float> vector1(x1, y1);
 		const Math::Vector2<float> vector2(x2, y2);
@@ -202,8 +202,8 @@ TEST(Vector2_tests, Subtraction) {
 		EXPECT_NEAR(resultVector.mX, x1 - x2, floatMargin);
 		EXPECT_NEAR(resultVector.mY, y1 - y2, floatMargin);
 
-		const auto x3 = testUtils.GetRandomFloat();
-		const auto y3 = testUtils.GetRandomFloat();
+		const auto x3 = testUtilsVec2.GetRandomFloat();
+		const auto y3 = testUtilsVec2.GetRandomFloat();
 
 		Math::Vector2<float> vector4(x3, y3);
 		vector4 -= resultVector;
@@ -216,10 +216,10 @@ TEST(Vector2_tests, Subtraction) {
 	}
 
 	for (int i = 0; i < 100; i++) {
-		const auto x1 = testUtils.GetRandomDouble();
-		const auto y1 = testUtils.GetRandomDouble();
-		const auto x2 = testUtils.GetRandomDouble();
-		const auto y2 = testUtils.GetRandomDouble();
+		const auto x1 = testUtilsVec2.GetRandomDouble();
+		const auto y1 = testUtilsVec2.GetRandomDouble();
+		const auto x2 = testUtilsVec2.GetRandomDouble();
+		const auto y2 = testUtilsVec2.GetRandomDouble();
 
 		const Math::Vector2<double> vector1(x1, y1);
 		const Math::Vector2<double> vector2(x2, y2);
@@ -228,8 +228,8 @@ TEST(Vector2_tests, Subtraction) {
 		EXPECT_NEAR(resultVector.mX, x1 - x2, doubleMargin);
 		EXPECT_NEAR(resultVector.mY, y1 - y2, doubleMargin);
 
-		const auto x3 = testUtils.GetRandomDouble();
-		const auto y3 = testUtils.GetRandomDouble();
+		const auto x3 = testUtilsVec2.GetRandomDouble();
+		const auto y3 = testUtilsVec2.GetRandomDouble();
 
 		Math::Vector2<double> vector4(x3, y3);
 		vector4 -= resultVector;
@@ -242,12 +242,12 @@ TEST(Vector2_tests, Subtraction) {
 	}
 
 	for (int i = 0; i < 100; i++) {
-		const auto x1 = testUtils.GetRandomInt();
-		const auto y1 = testUtils.GetRandomInt();
-		const auto x2 = testUtils.GetRandomInt();
-		const auto y2 = testUtils.GetRandomInt();
-		const auto x3 = testUtils.GetRandomInt();
-		const auto y3 = testUtils.GetRandomInt();
+		const auto x1 = testUtilsVec2.GetRandomInt();
+		const auto y1 = testUtilsVec2.GetRandomInt();
+		const auto x2 = testUtilsVec2.GetRandomInt();
+		const auto y2 = testUtilsVec2.GetRandomInt();
+		const auto x3 = testUtilsVec2.GetRandomInt();
+		const auto y3 = testUtilsVec2.GetRandomInt();
 
 		const Math::Vector2<int> vector1(x1, y1);
 		const Math::Vector2<int> vector2(x2, y2);
@@ -269,10 +269,10 @@ TEST(Vector2_tests, Subtraction) {
 
 TEST(Vector2_tests, Multiplication) {
 	for (int i = 0; i < 100; i++) {
-		const auto x1 = testUtils.GetRandomFloat();
-		const auto y1 = testUtils.GetRandomFloat();
-		const auto x2 = testUtils.GetRandomFloat();
-		const auto y2 = testUtils.GetRandomFloat();
+		const auto x1 = testUtilsVec2.GetRandomFloat();
+		const auto y1 = testUtilsVec2.GetRandomFloat();
+		const auto x2 = testUtilsVec2.GetRandomFloat();
+		const auto y2 = testUtilsVec2.GetRandomFloat();
 
 		const Math::Vector2<float> vector1(x1, y1);
 		const Math::Vector2<float> vector2(x2, y2);
@@ -281,8 +281,8 @@ TEST(Vector2_tests, Multiplication) {
 		EXPECT_NEAR(resultVector.mX, x1 * x2, floatMargin);
 		EXPECT_NEAR(resultVector.mY, y1 * y2, floatMargin);
 
-		const auto x3 = testUtils.GetRandomFloat();
-		const auto y3 = testUtils.GetRandomFloat();
+		const auto x3 = testUtilsVec2.GetRandomFloat();
+		const auto y3 = testUtilsVec2.GetRandomFloat();
 
 		Math::Vector2<float> vector4(x3, y3);
 		vector4 *= resultVector;
@@ -295,10 +295,10 @@ TEST(Vector2_tests, Multiplication) {
 	}
 
 	for (int i = 0; i < 100; i++) {
-		const auto x1 = testUtils.GetRandomDouble();
-		const auto y1 = testUtils.GetRandomDouble();
-		const auto x2 = testUtils.GetRandomDouble();
-		const auto y2 = testUtils.GetRandomDouble();
+		const auto x1 = testUtilsVec2.GetRandomDouble();
+		const auto y1 = testUtilsVec2.GetRandomDouble();
+		const auto x2 = testUtilsVec2.GetRandomDouble();
+		const auto y2 = testUtilsVec2.GetRandomDouble();
 
 		const Math::Vector2<double> vector1(x1, y1);
 		const Math::Vector2<double> vector2(x2, y2);
@@ -307,8 +307,8 @@ TEST(Vector2_tests, Multiplication) {
 		EXPECT_NEAR(resultVector.mX, x1 * x2, doubleMargin);
 		EXPECT_NEAR(resultVector.mY, y1 * y2, doubleMargin);
 
-		const auto x3 = testUtils.GetRandomDouble();
-		const auto y3 = testUtils.GetRandomDouble();
+		const auto x3 = testUtilsVec2.GetRandomDouble();
+		const auto y3 = testUtilsVec2.GetRandomDouble();
 
 		Math::Vector2<double> vector4(x3, y3);
 		vector4 *= resultVector;
@@ -321,12 +321,12 @@ TEST(Vector2_tests, Multiplication) {
 	}
 
 	for (int i = 0; i < 100; i++) {
-		const auto x1 = testUtils.GetRandomInt();
-		const auto y1 = testUtils.GetRandomInt();
-		const auto x2 = testUtils.GetRandomInt();
-		const auto y2 = testUtils.GetRandomInt();
-		const auto x3 = testUtils.GetRandomInt();
-		const auto y3 = testUtils.GetRandomInt();
+		const auto x1 = testUtilsVec2.GetRandomInt();
+		const auto y1 = testUtilsVec2.GetRandomInt();
+		const auto x2 = testUtilsVec2.GetRandomInt();
+		const auto y2 = testUtilsVec2.GetRandomInt();
+		const auto x3 = testUtilsVec2.GetRandomInt();
+		const auto y3 = testUtilsVec2.GetRandomInt();
 
 		const Math::Vector2<int> vector1(x1, y1);
 		const Math::Vector2<int> vector2(x2, y2);
@@ -348,8 +348,8 @@ TEST(Vector2_tests, Multiplication) {
 
 TEST(Vector2_tests, LengthSquared) {
 	for (int i = 0; i < 100; i++) {
-		const auto x1 = testUtils.GetRandomFloat();
-		const auto y1 = testUtils.GetRandomFloat();
+		const auto x1 = testUtilsVec2.GetRandomFloat();
+		const auto y1 = testUtilsVec2.GetRandomFloat();
 
 		const Math::Vector2<float> vector(x1, y1);
 		const auto lengthSqrd = vector.LengthSqrd();
@@ -359,8 +359,8 @@ TEST(Vector2_tests, LengthSquared) {
 	}
 
 	for (int i = 0; i < 100; i++) {
-		const auto x1 = testUtils.GetRandomDouble();
-		const auto y1 = testUtils.GetRandomDouble();
+		const auto x1 = testUtilsVec2.GetRandomDouble();
+		const auto y1 = testUtilsVec2.GetRandomDouble();
 
 		const Math::Vector2<double> vector(x1, y1);
 		const auto lengthSqrd = vector.LengthSqrd();
@@ -370,8 +370,8 @@ TEST(Vector2_tests, LengthSquared) {
 	}
 
 	for (int i = 0; i < 100; i++) {
-		const auto x1 = testUtils.GetRandomInt();
-		const auto y1 = testUtils.GetRandomInt();
+		const auto x1 = testUtilsVec2.GetRandomInt();
+		const auto y1 = testUtilsVec2.GetRandomInt();
 
 		const Math::Vector2<int> vector(x1, y1);
 		const auto result = vector.LengthSqrd();
@@ -382,8 +382,8 @@ TEST(Vector2_tests, LengthSquared) {
 
 TEST(Vector2_tests, Length) {
 	for (int i = 0; i < 100; i++) {
-		const auto x1 = testUtils.GetRandomFloat();
-		const auto y1 = testUtils.GetRandomFloat();
+		const auto x1 = testUtilsVec2.GetRandomFloat();
+		const auto y1 = testUtilsVec2.GetRandomFloat();
 
 		const Math::Vector2<float> vector(x1, y1);
 		const auto length = vector.Length();
@@ -393,8 +393,8 @@ TEST(Vector2_tests, Length) {
 	}
 
 	for (int i = 0; i < 100; i++) {
-		const auto x1 = testUtils.GetRandomDouble();
-		const auto y1 = testUtils.GetRandomDouble();
+		const auto x1 = testUtilsVec2.GetRandomDouble();
+		const auto y1 = testUtilsVec2.GetRandomDouble();
 
 		const Math::Vector2<double> vector(x1, y1);
 		const auto length = vector.Length();
@@ -404,8 +404,8 @@ TEST(Vector2_tests, Length) {
 	}
 
 	for (int i = 0; i < 100; i++) {
-		const auto x1 = testUtils.GetRandomInt();
-		const auto y1 = testUtils.GetRandomInt();
+		const auto x1 = testUtilsVec2.GetRandomInt();
+		const auto y1 = testUtilsVec2.GetRandomInt();
 
 		const Math::Vector2<int> vector(x1, y1);
 		const auto length = vector.Length();
@@ -417,8 +417,8 @@ TEST(Vector2_tests, Length) {
 
 TEST(Vector2_tests, GetNormalized) {
 	for (int i = 0; i < 100; i++) {
-		const auto x1 = testUtils.GetRandomFloat();
-		const auto y1 = testUtils.GetRandomFloat();
+		const auto x1 = testUtilsVec2.GetRandomFloat();
+		const auto y1 = testUtilsVec2.GetRandomFloat();
 
 		const Math::Vector2<float> vector(x1, y1);
 		const auto normalizedVector = vector.GetNormalized();
@@ -432,8 +432,8 @@ TEST(Vector2_tests, GetNormalized) {
 	}
 
 	for (int i = 0; i < 100; i++) {
-		const auto x1 = testUtils.GetRandomDouble();
-		const auto y1 = testUtils.GetRandomDouble();
+		const auto x1 = testUtilsVec2.GetRandomDouble();
+		const auto y1 = testUtilsVec2.GetRandomDouble();
 
 		const Math::Vector2<double> vector(x1, y1);
 		const auto normalizedVector = vector.GetNormalized();
@@ -447,8 +447,8 @@ TEST(Vector2_tests, GetNormalized) {
 	}
 
 	for (int i = 0; i < 100; i++) {
-		const auto x1 = testUtils.GetRandomInt();
-		const auto y1 = testUtils.GetRandomInt();
+		const auto x1 = testUtilsVec2.GetRandomInt();
+		const auto y1 = testUtilsVec2.GetRandomInt();
 
 		const Math::Vector2<int> vector(x1, y1);
 		const auto normalizedVector = vector.GetNormalized();
@@ -495,10 +495,10 @@ TEST(Vector2_tests, Normalize_Zero) {
 
 TEST(Vector2_tests, Dot) {
 	for (int i = 0; i < 100; i++) {
-		const auto x1 = testUtils.GetRandomFloat();
-		const auto x2 = testUtils.GetRandomFloat();
-		const auto y1 = testUtils.GetRandomFloat();
-		const auto y2 = testUtils.GetRandomFloat();
+		const auto x1 = testUtilsVec2.GetRandomFloat();
+		const auto x2 = testUtilsVec2.GetRandomFloat();
+		const auto y1 = testUtilsVec2.GetRandomFloat();
+		const auto y2 = testUtilsVec2.GetRandomFloat();
 
 		const Math::Vector2<float> vector1(x1, y1);
 		const Math::Vector2<float> vector2(x2, y2);
@@ -510,10 +510,10 @@ TEST(Vector2_tests, Dot) {
 	}
 
 	for (int i = 0; i < 100; i++) {
-		const auto x1 = testUtils.GetRandomDouble();
-		const auto x2 = testUtils.GetRandomDouble();
-		const auto y1 = testUtils.GetRandomDouble();
-		const auto y2 = testUtils.GetRandomDouble();
+		const auto x1 = testUtilsVec2.GetRandomDouble();
+		const auto x2 = testUtilsVec2.GetRandomDouble();
+		const auto y1 = testUtilsVec2.GetRandomDouble();
+		const auto y2 = testUtilsVec2.GetRandomDouble();
 
 		const Math::Vector2<double> vector1(x1, y1);
 		const Math::Vector2<double> vector2(x2, y2);
@@ -525,10 +525,10 @@ TEST(Vector2_tests, Dot) {
 	}
 
 	for (int i = 0; i < 100; i++) {
-		const auto x1 = testUtils.GetRandomInt();
-		const auto x2 = testUtils.GetRandomInt();
-		const auto y1 = testUtils.GetRandomInt();
-		const auto y2 = testUtils.GetRandomInt();
+		const auto x1 = testUtilsVec2.GetRandomInt();
+		const auto x2 = testUtilsVec2.GetRandomInt();
+		const auto y1 = testUtilsVec2.GetRandomInt();
+		const auto y2 = testUtilsVec2.GetRandomInt();
 
 		const Math::Vector2<int> vector1(x1, y1);
 		const Math::Vector2<int> vector2(x2, y2);
