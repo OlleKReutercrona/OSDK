@@ -10,20 +10,6 @@ namespace Math {
 
 		Vector3<T>& operator=(const Vector3<T>& vector) = default;
 
-		T operator[](const unsigned int index) {
-			switch (index) {
-			case 0:
-				return mX;
-			case 1:
-				return mY;
-			case 2:
-				return mZ;
-			}
-
-			static_assert(false && "index out of bounds");
-			return 0;
-		}
-
 		// Returns the squared length of the vector
 		T LengthSqrd() const;
 
@@ -59,7 +45,7 @@ namespace Math {
 
 	template<class T>
 	inline T Vector3<T>::Length() const {
-		return sqrt(LengthSqrd());
+		return static_cast<T>(sqrt(LengthSqrd()));
 	}
 
 	template<class T>
@@ -73,10 +59,10 @@ namespace Math {
 	inline void Vector3<T>::Normalize() {
 		Vector3<T> vec(mX, mY, mZ);
 		if (mX + mY != 0) {
-			vec /= vec.Length();
-			mX = vec.mX;
-			mY = vec.mY;
-			mZ = vec.mZ;
+			const auto length = vec.Length();
+			mX = vec.mX / length;
+			mY = vec.mY / length;
+			mZ = vec.mZ / length;
 		}
 	}
 
@@ -100,7 +86,7 @@ namespace Math {
 	}
 
 	template <class T>
-	void operator+=(const Vector3<T>& vector0, const Vector3<T>& vector1) {
+	void operator+=(Vector3<T>& vector0, const Vector3<T>& vector1) {
 		vector0.mX += vector1.mX;
 		vector0.mY += vector1.mY;
 		vector0.mZ += vector1.mZ;
@@ -113,22 +99,10 @@ namespace Math {
 	}
 
 	template <class T>
-	void operator-=(const Vector3<T>& vector0, const Vector3<T>& vector1) {
+	void operator-=(Vector3<T>& vector0, const Vector3<T>& vector1) {
 		vector0.mX -= vector1.mX;
 		vector0.mY -= vector1.mY;
 		vector0.mZ -= vector1.mZ;
-	}
-
-	template <class T>
-	Vector3<T> operator/(const Vector3<T>& vector0, const Vector3<T>& vector1) {
-		return { vector0.mX / vector1.mX, vector0.mY / vector1.mY, vector0.mZ / vector1.mZ };
-	}
-
-	template <class T>
-	void operator/=(const Vector3<T>& vector0, const Vector3<T>& vector1) {
-		vector0.mX /= vector1.mX;
-		vector0.mY /= vector1.mY;
-		vector0.mZ /= vector1.mZ;
 	}
 
 	template <class T>
@@ -137,7 +111,7 @@ namespace Math {
 	}
 
 	template <class T>
-	void operator*=(const Vector3<T>& vector0, const Vector3<T>& vector1) {
+	void operator*=(Vector3<T>& vector0, const Vector3<T>& vector1) {
 		vector0.mX *= vector1.mX;
 		vector0.mY *= vector1.mY;
 		vector0.mZ *= vector1.mZ;
