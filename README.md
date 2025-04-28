@@ -4,14 +4,14 @@
 * Vector2
 * Vector3
 * Vector4
-
-Upcoming:
-* Matrix3x3
-* Matrix4x4
 * Abs
 * Clamp
 * Lerp
 * Max
 * Min
 * Timer
+
+Upcoming:
+* Matrix3x3
+* Matrix4x4
 * Input (for Windows)
