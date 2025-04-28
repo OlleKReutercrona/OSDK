@@ -35,3 +35,11 @@
 **/.vs
 **/UTOutput
 **/UTIntermediate
+
+/Temp
+/Intermediate
+
+*.pdb
+*.vcxproj
+*.vcxproj.user
+*.sln
