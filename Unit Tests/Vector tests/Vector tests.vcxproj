@@ -120,7 +120,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\TestUtilities.cpp" />
-    <ClCompile Include="test.cpp" />
+    <ClCompile Include="Vector2_tests.cpp" />
+    <ClCompile Include="Vector3_tests.cpp" />
+    <ClCompile Include="Vector4_tests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -10,22 +10,6 @@ namespace Math {
 
 		Vector4<T>& operator=(const Vector4<T>& vector) = default;
 
-		T operator[](const unsigned int index) {
-			switch (index) {
-			case 0:
-				return mX;
-			case 1:
-				return mY;
-			case 2:
-				return mZ;
-			case 4:
-				return mW;
-			}
-
-			static_assert(false && "index out of bounds");
-			return 0;
-		}
-
 		// Returns the squared length of the vector
 		T LengthSqrd() const;
 
@@ -59,7 +43,7 @@ namespace Math {
 
 	template<class T>
 	inline T Vector4<T>::Length() const {
-		return sqrt(LengthSqrd());
+		return static_cast<T>(sqrt(LengthSqrd()));
 	}
 
 	template<class T>
@@ -73,11 +57,11 @@ namespace Math {
 	inline void Vector4<T>::Normalize() {
 		Vector4<T> vec(mX, mY, mZ, mW);
 		if (mX + mY != 0) {
-			vec /= vec.Length();
-			mX = vec.mX;
-			mY = vec.mY;
-			mZ = vec.mZ;
-			mW = vec.mW;
+			const auto length = vec.Length();
+			mX = vec.mX / length;
+			mY = vec.mY / length;
+			mZ = vec.mZ / length;
+			mW = vec.mW / length;
 		}
 	}
 
@@ -92,7 +76,7 @@ namespace Math {
 	}
 
 	template <class T>
-	void operator+=(const Vector4<T>& vector0, const Vector4<T>& vector1) {
+	void operator+=(Vector4<T>& vector0, const Vector4<T>& vector1) {
 		vector0.mX += vector1.mX;
 		vector0.mY += vector1.mY;
 		vector0.mZ += vector1.mZ;
@@ -106,24 +90,11 @@ namespace Math {
 	}
 
 	template <class T>
-	void operator-=(const Vector4<T>& vector0, const Vector4<T>& vector1) {
+	void operator-=(Vector4<T>& vector0, const Vector4<T>& vector1) {
 		vector0.mX -= vector1.mX;
 		vector0.mY -= vector1.mY;
 		vector0.mZ -= vector1.mZ;
 		vector0.mW -= vector1.mW;
-	}
-
-	template <class T>
-	Vector4<T> operator/(const Vector4<T>& vector0, const Vector4<T>& vector1) {
-		return { vector0.mX / vector1.mX, vector0.mY / vector1.mY, vector0.mZ / vector1.mZ, vector0.mW / vector1.mW };
-	}
-
-	template <class T>
-	void operator/=(const Vector4<T>& vector0, const Vector4<T>& vector1) {
-		vector0.mX /= vector1.mX;
-		vector0.mY /= vector1.mY;
-		vector0.mZ /= vector1.mZ;
-		vector0.mW /= vector1.mW;
 	}
 
 	template <class T>
@@ -132,7 +103,7 @@ namespace Math {
 	}
 
 	template <class T>
-	void operator*=(const Vector4<T>& vector0, const Vector4<T>& vector1) {
+	void operator*=(Vector4<T>& vector0, const Vector4<T>& vector1) {
 		vector0.mX *= vector1.mX;
 		vector0.mY *= vector1.mY;
 		vector0.mZ *= vector1.mZ;

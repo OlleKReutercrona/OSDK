@@ -43,7 +43,7 @@ namespace Math {
 
 	template<class T>
 	inline T Vector2<T>::Length() const {
-		return sqrt(LengthSqrd());
+		return static_cast<T>(sqrt(LengthSqrd()));
 	}
 
 	template<class T>
